@@ -18,9 +18,9 @@ class CourseDetails(models.Model):
     courseDescription=models.TextField()
 
     def __str__(self) -> str:
-        return self.courseTitle
-
-
+        return str(self.courseTitle)
+    
+#One mistake in coursepricing table - coursetitle must be Foregn key
 class CoursePricing(models.Model):
     coursePricingId=models.AutoField(primary_key=True)
     courseId=models.ForeignKey(CourseDetails, on_delete=models.CASCADE)
@@ -30,7 +30,7 @@ class CoursePricing(models.Model):
     discountedPrice=models.FloatField()
 
     def __str__(self) -> str:
-        return self.courseTitle
+        return str(self.courseTitle)
 
 
 class StudentInformation(models.Model):
@@ -45,7 +45,7 @@ class StudentInformation(models.Model):
     yearOfStudy=models.IntegerField()
 
     def __str__(self) -> str:
-        return self.studentName
+        return str(self.studentName)
 
 
 class RegistrationInfo(models.Model):
@@ -58,7 +58,7 @@ class RegistrationInfo(models.Model):
     ammountPaid=models.IntegerField()
 
     def __str__(self) -> str:
-        return self.studentId
+        return str(self.studentId)
 
 
 
