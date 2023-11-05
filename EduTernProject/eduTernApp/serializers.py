@@ -26,3 +26,12 @@ class CoursePricingSerializer(serializers.ModelSerializer):
     class Meta:
         model=CoursePricing
         fields=['courseId','courseTitle','originalCost','discountPercentage','discountedPrice']
+
+class OrderSerializer(serializers.Serializer):
+    amount = serializers.IntegerField()
+    currency = serializers.CharField(max_length=3, default="INR")
+    receipt = serializers.CharField(max_length=255, default="order_rcptid_11")
+
+class VerifyPaymentSerializer(serializers.Serializer):
+    payment_id = serializers.CharField()
+    order_id = serializers.CharField()
